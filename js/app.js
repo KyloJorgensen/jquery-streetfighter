@@ -14,7 +14,7 @@ $(document).ready(function() {
 
 	.mousedown(function() {
 		console.log('mousedown');
-		playHadouken();
+		playSound('#hadouken-sound', 0.5);
 		$('.ryu-ready').hide();
 		$('.ryu-throwing').show();
 		$('.hadouken').finish().show().animate(
@@ -35,40 +35,33 @@ $(document).ready(function() {
 
 	$("body").keydown(function(event) {
 		console.log('keydown');
-		if (event.which == 88) {
+		if (event.which === 88) {
 			console.log('x is pressed');
 			$('.ryu-still').hide();
 			$('.ryu-ready').hide();
 			$('.ryu-throwing').hide();
-			playCool();
-			$('.ryu-cool').show();	
-			while $('body').keypress(function(event){
-				if (event.which == 88) {}
-			});
+			$('.ryu-cool').show();
+			playSound('#cool-sound', 0.5);
 		}
 	})
 	 .keyup(function(event) {
 		console.log('keyup');
-		if (event.which == 88) {
+		if (event.which === 88) {
 			console.log('x is leased');
+			playSound('#cool-sound', 0);
 			$('.ryu-cool').hide();
 			$('.ryu-still').show();
 		} 
 	});
 
+	function playSound (id, volume) {
+		$(id)[0].volume = volume;
+  		if ($(id)[0].paused){
+  			$(id)[0].load();
+ 			$(id)[0].play();
+ 		}
+	}
 
-
-	function playHadouken () {
- 		$('#hadouken-sound')[0].volume = 0.5;
-  		$('#hadouken-sound')[0].load();
- 		$('#hadouken-sound')[0].play();
- 	}
-
- 	function playCool () {
- 		$('#cool-sound')[0].volume = 0.5;
-  		$('#cool-sound')[0].load();
- 		$('#cool-sound')[0].play();
- 	}
 
 
 });
