@@ -33,10 +33,42 @@ $(document).ready(function() {
 		$('.ryu-ready').show();
 	});
 
+	$("body").keydown(function(event) {
+		console.log('keydown');
+		if (event.which == 88) {
+			console.log('x is pressed');
+			$('.ryu-still').hide();
+			$('.ryu-ready').hide();
+			$('.ryu-throwing').hide();
+			playCool();
+			$('.ryu-cool').show();	
+			while $('body').keypress(function(event){
+				if (event.which == 88) {}
+			});
+		}
+	})
+	 .keyup(function(event) {
+		console.log('keyup');
+		if (event.which == 88) {
+			console.log('x is leased');
+			$('.ryu-cool').hide();
+			$('.ryu-still').show();
+		} 
+	});
+
+
+
 	function playHadouken () {
  		$('#hadouken-sound')[0].volume = 0.5;
   		$('#hadouken-sound')[0].load();
  		$('#hadouken-sound')[0].play();
  	}
-		
+
+ 	function playCool () {
+ 		$('#cool-sound')[0].volume = 0.5;
+  		$('#cool-sound')[0].load();
+ 		$('#cool-sound')[0].play();
+ 	}
+
+
 });
