@@ -1,3 +1,9 @@
+@font-face {
+	font-family: comical;
+  	src: url(http://benjaminewhite.github.io/jquery-streetfighter-example/fonts/animeace2_reg.otf);
+
+}
+
 * {
 	outline: red 1px solid;
 }
@@ -70,4 +76,27 @@ div{}
 .ryu-throwing,
 .ryu-cool {
 	background-repeat: no-repeat;
+}
+
+.howto {
+	display: block;
+	width: 600px;
+	float: left;
+}
+
+p {
+    color: black;
+    margin: 60px 0;
+    width: 50%;
+    font-size: 24px;
+    line-height: 45px;
+    font-family: comical;
+}
+
+.click {
+
+}
+
+.pressX {
+	padding-left: 275px;
 }
